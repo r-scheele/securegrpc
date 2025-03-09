@@ -27,8 +27,7 @@ go install github.com/r-scheele/securegrpc/cmd/securegrpc-gen@latest
 Clone the repository and build:
 ```bash
 git clone https://github.com/r-scheele/securegrpc.git
-cd securegrpc/cmd/securegrpc-gen
-go build
+go build github.com/r-scheele/securegrpc/cmd/securegrpc-gen
 ```
 This creates the `securegrpc-gen` binary in the current directory.
 
