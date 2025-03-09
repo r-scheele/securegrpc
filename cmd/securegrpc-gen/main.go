@@ -26,9 +26,16 @@ type Config struct {
 
 func main() {
 	// Define command-line flags
+	helpFlag := flag.Bool("help", false, "Show help")
 	configPath := flag.String("config", "", "Path to the configuration file")
 	outDir := flag.String("out-dir", ".", "Directory to save generated files")
 	flag.Parse()
+
+	// Show help message
+	if *helpFlag {
+		flag.Usage()
+		os.Exit(0)
+	}
 
 	// Validate that a config file path is provided
 	if *configPath == "" {

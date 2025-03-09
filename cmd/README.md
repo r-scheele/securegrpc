@@ -20,15 +20,18 @@ Designed for developers securing gRPC applications, it supports customizable key
 Install directly to your `$GOPATH/bin`:
 ```bash
 go install github.com/r-scheele/securegrpc/cmd/securegrpc-gen@latest
+securegrpc-gen --help
 ```
 
 
 ### Build from Source
 Clone the repository and build:
 ```bash
-git clone https://github.com/r-scheele/securegrpc.git
+go get github.com/r-scheele/securegrpc/cmd/securegrpc-gen
 go build github.com/r-scheele/securegrpc/cmd/securegrpc-gen
+./securegrpc-gen --help
 ```
+
 This creates the `securegrpc-gen` binary in the current directory.
 
 
