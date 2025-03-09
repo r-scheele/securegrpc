@@ -28,7 +28,7 @@ securegrpc-gen --help
 Clone the repository and build:
 ```bash
 go get github.com/r-scheele/securegrpc/cmd/securegrpc-gen
-go build github.com/r-scheele/securegrpc/cmd/securegrpc-gen -o $GOPATH/bin/securegrpc-gen
+go build -o "$GOPATH/bin/securegrpc-gen" github.com/r-scheele/securegrpc/cmd/securegrpc-gen
 securegrpc-gen --help
 ```
 
