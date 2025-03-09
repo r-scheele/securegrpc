@@ -28,8 +28,8 @@ securegrpc-gen --help
 Clone the repository and build:
 ```bash
 go get github.com/r-scheele/securegrpc/cmd/securegrpc-gen
-go build github.com/r-scheele/securegrpc/cmd/securegrpc-gen
-./securegrpc-gen --help
+go build github.com/r-scheele/securegrpc/cmd/securegrpc-gen -o $GOPATH/bin/securegrpc-gen
+securegrpc-gen --help
 ```
 
 This creates the `securegrpc-gen` binary in the current directory.
