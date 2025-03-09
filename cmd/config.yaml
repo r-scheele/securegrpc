@@ -1,0 +1,106 @@
+# Controls whether to generate the CA certificate and key.
+# Set to false if you already have a CA and only need server/client certs.
+generate_ca: true
+
+# Controls whether to generate the server certificate and key.
+# Set to false if you only need the CA or client cert.
+generate_server: true
+
+# Controls whether to generate the client certificate and key.
+# Set to false if you only need the CA or server cert.
+generate_client: true
+
+# Configuration for the Certificate Authority (CA).
+ca:
+  # Country code (e.g., "US" for United States).
+  country: "US"
+  
+  # State or province (e.g., "California").
+  state: "California"
+  
+  # City or locality (e.g., "San Francisco").
+  locality: "San Francisco"
+  
+  # Organization name (e.g., "Example Inc.").
+  organization: "Example Inc."
+  
+  # Common Name (CN) for the CA certificate (e.g., "Example Root CA").
+  common_name: "Example Root CA"
+  
+  # Size of the RSA key in bits (minimum 2048, defaults to 4096 if omitted).
+  key_size: 4096
+  
+  # Validity period in days (defaults to 365 if omitted).
+  validity_days: 730  # 2 years
+
+# Configuration for the server certificate.
+server:
+  # Common Name (CN) for the server certificate (e.g., "my-server").
+  service_name: "my-server"
+  
+  # List of IP addresses for Subject Alternative Names (SANs).
+  # Supports multiple IPs in the new format.
+  ips:
+    - "127.0.0.1"
+    - "192.168.1.1"
+  
+  # List of domain names for SANs.
+  # Supports multiple domains in the new format.
+  domains:
+    - "localhost"
+    - "server.example.com"
+  
+  # Single IP address (backward compatibility with older configs).
+  # Ignored if 'ips' is specified.
+  ip: "127.0.0.1"
+  
+  # Single domain name (backward compatibility with older configs).
+  # Ignored if 'domains' is specified.
+  domain: "localhost"
+  
+  # Size of the RSA key in bits (minimum 2048, defaults to 4096 if omitted).
+  key_size: 2048
+  
+  # Validity period in days (defaults to 365 if omitted).
+  validity_days: 365  # 1 year
+  
+  # Key usage flags (comma-separated, optional).
+  # Options: digitalSignature, contentCommitment, keyEncipherment, dataEncipherment,
+  # keyAgreement, certSign, crlSign, encipherOnly, decipherOnly.
+  # Defaults to "digitalSignature,keyEncipherment" if omitted.
+  key_usage: "digitalSignature,keyEncipherment,dataEncipherment"
+  
+  # Extended key usage flags (comma-separated, optional).
+  # Options: serverAuth, clientAuth, codeSigning, emailProtection, timeStamping, ocspSigning.
+  # Defaults to "serverAuth" if omitted.
+  ext_key_usage: "serverAuth"
+
+# Configuration for the client certificate.
+client:
+  # Common Name (CN) for the client certificate (e.g., "my-client").
+  service_name: "my-client"
+  
+  # Size of the RSA key in bits (minimum 2048, defaults to 4096 if omitted).
+  key_size: 4096
+  
+  # Validity period in days (defaults to 365 if omitted).
+  validity_days: 180  # 6 months
+  
+  # Key usage flags (comma-separated, optional).
+  # Options: same as server.key_usage.
+  # Defaults to "digitalSignature" if omitted.
+  key_usage: "digitalSignature"
+  
+  # Extended key usage flags (comma-separated, optional).
+  # Options: same as server.ext_key_usage.
+  # Defaults to "clientAuth" if omitted.
+  ext_key_usage: "clientAuth,emailProtection"
+
+# Configuration for the Access Control List (ACL) file.
+acl:
+  # Whether to generate the ACL file.
+  # Set to false if you don’t need an ACL.
+  generate: true
+  
+  # Filename for the generated ACL file (e.g., "acl.json").
+  output: "acl.json"
